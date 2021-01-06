@@ -27,16 +27,21 @@ extra_boot:                                                             \
         .global userstart;                                              \
 userstart:                                                              \
         init
-
+#define RVTEST_CODE_BEGIN1                                              \
+  write_tohost2:                                                         \
+        lui a5,0xc1000;                                                 \
+        addi  a5,a5,0;                                                  \
+        sw TESTNUM, 0(a5);                                              \
+        j write_tohost2;                                                \
 //-----------------------------------------------------------------------
 // Pass/Fail Macro
 //-----------------------------------------------------------------------
 
 #undef RVTEST_PASS
-#define RVTEST_PASS li a0, 1; lui a5,0xc1000; addi  a5,a5,0; sw TESTNUM, 0(a5);
+#define RVTEST_PASS li a0, 1; write_tohost2;
 
 #undef RVTEST_FAIL
-#define RVTEST_FAIL sll a0, TESTNUM, 1; 1:beqz a0, 1b; or a0, a0, 1; lui a5,0xc1000; addi  a5,a5,0; sw TESTNUM, 0(a5);
+#define RVTEST_FAIL sll a0, TESTNUM, 1; 1:beqz a0, 1b; or a0, a0, 1; write_tohost2;
 
 //-----------------------------------------------------------------------
 // Data Section Macro
