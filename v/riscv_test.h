@@ -33,10 +33,10 @@ userstart:                                                              \
 //-----------------------------------------------------------------------
 
 #undef RVTEST_PASS
-#define RVTEST_PASS li a0, 1; write_tohost
+#define RVTEST_PASS li a0, 1; lui a5,0xc1000; addi  a5,a5,0; sw TESTNUM, 0(a5);
 
 #undef RVTEST_FAIL
-#define RVTEST_FAIL sll a0, TESTNUM, 1; 1:beqz a0, 1b; or a0, a0, 1; write_tohost;
+#define RVTEST_FAIL sll a0, TESTNUM, 1; 1:beqz a0, 1b; or a0, a0, 1; lui a5,0xc1000; addi  a5,a5,0; sw TESTNUM, 0(a5);
 
 //-----------------------------------------------------------------------
 // Data Section Macro
