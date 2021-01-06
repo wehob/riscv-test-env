@@ -25,13 +25,13 @@ extra_boot:                                                             \
         EXTRA_INIT                                                      \
         ret;                                                            \
         .global userstart;                                              \
-userstart:                                                              \
-        init                                                            \
 write_tohost2:                                                          \
         lui a5,0xc1000;                                                 \
         addi  a5,a5,0;                                                  \
         sw TESTNUM, 0(a5);                                              \
         j write_tohost2;                                                \
+userstart:                                                              \
+        init                                                            \
 //-----------------------------------------------------------------------
 // Pass/Fail Macro
 //-----------------------------------------------------------------------
