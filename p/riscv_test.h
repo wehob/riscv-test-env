@@ -240,10 +240,10 @@ reset_vector:                                                           \
         li TESTNUM, 1;                                                  \
         li a7, 93;                                                      \
         li a0, 0;                                                       \
-        lui a5,0x0                                                      \
-        ori a5, a5, 0x2ff                                               \
-        slli a5,a5,4                                                    \
-        ori a5, a5, 0xf                                                 \
+        lui a5,0x0;                                                     \
+        ori a5, a5, 0x2ff;                                              \
+        slli a5,a5,4;                                                   \
+        ori a5, a5, 0xf;                                                \
         sw TESTNUM, 0(a5);                                              
 
 #define TESTNUM gp
@@ -254,10 +254,10 @@ reset_vector:                                                           \
         or TESTNUM, TESTNUM, 1;                                         \
         li a7, 93;                                                      \
         addi a0, TESTNUM, 0;                                            \
-        lui a5,0x0                                                      \
-        ori a5, a5, 0x2ff                                               \
-        slli a5,a5,4                                                    \
-        ori a5, a5, 0xf                                                 \
+        lui a5,0x0;                                                     \
+        ori a5, a5, 0x2ff;                                              \
+        slli a5,a5,4;                                                   \
+        ori a5, a5, 0xf;                                                \
         sw TESTNUM, 0(a5);                                              
 
 //-----------------------------------------------------------------------
