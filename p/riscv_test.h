@@ -192,6 +192,7 @@ handle_exception:                                                       \
         lui a5,0xc1000;                                                 \
         addi  a5,a5,0;                                                  \
         sw TESTNUM, 0(a5);                                              \
+        j write_tohost;                                                 \
 reset_vector:                                                           \
         INIT_XREG;                                                      \
         RISCV_MULTICORE_DISABLE;                                        \
@@ -239,7 +240,9 @@ reset_vector:                                                           \
         li TESTNUM, 1;                                                  \
         li a7, 93;                                                      \
         li a0, 0;                                                       \
-        j write_tohost;
+        lui a5,0xc1000;                                                 \
+        addi  a5,a5,0;                                                  \
+        sw TESTNUM, 0(a5);                                              
 
 #define TESTNUM gp
 #define RVTEST_FAIL                                                     \
@@ -249,7 +252,9 @@ reset_vector:                                                           \
         or TESTNUM, TESTNUM, 1;                                         \
         li a7, 93;                                                      \
         addi a0, TESTNUM, 0;                                            \
-        j write_tohost;
+        lui a5,0xc1000;                                                 \
+        addi  a5,a5,0;                                                  \
+        sw TESTNUM, 0(a5);                                              
 
 //-----------------------------------------------------------------------
 // Data Section Macro
