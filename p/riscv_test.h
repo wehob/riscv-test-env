@@ -241,7 +241,7 @@ reset_vector:                                                           \
         li a7, 93;                                                      \
         li a0, 0;                                                       \
         lui a5,0x0;                                                     \
-        ori a5, a5, 0x2ff;                                              \
+        ori a5, a5, 0x2c9;                                              \
         slli a5,a5,4;                                                   \
         ori a5, a5, 0xc;                                                \
         sw TESTNUM, 0(a5);                                              
@@ -255,7 +255,7 @@ reset_vector:                                                           \
         li a7, 93;                                                      \
         addi a0, TESTNUM, 0;                                            \
         lui a5,0x0;                                                     \
-        ori a5, a5, 0x2ff;                                              \
+        ori a5, a5, 0x2c9;                                              \
         slli a5,a5,4;                                                   \
         ori a5, a5, 0xc;                                                \
         sw TESTNUM, 0(a5);                                              
