@@ -243,7 +243,7 @@ reset_vector:                                                           \
         lui a5,0x0;                                                     \
         ori a5, a5, 0x2ff;                                              \
         slli a5,a5,4;                                                   \
-        ori a5, a5, 0xf;                                                \
+        ori a5, a5, 0xc;                                                \
         sw TESTNUM, 0(a5);                                              
 
 #define TESTNUM gp
@@ -257,7 +257,7 @@ reset_vector:                                                           \
         lui a5,0x0;                                                     \
         ori a5, a5, 0x2ff;                                              \
         slli a5,a5,4;                                                   \
-        ori a5, a5, 0xf;                                                \
+        ori a5, a5, 0xc;                                                \
         sw TESTNUM, 0(a5);                                              
 
 //-----------------------------------------------------------------------
