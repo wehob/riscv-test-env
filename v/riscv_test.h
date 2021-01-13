@@ -35,20 +35,14 @@ userstart:                                                              \
 #undef RVTEST_PASS
 #define RVTEST_PASS li a0, 1;                                           \
         li TESTNUM, 1;                                                  \
-        mv    a5,s0;                                                    \
-        addi  a5,a5,0xFF;                                               \
-        slli  a5,a5,4;                                                  \
-        addi  a5,a5,0xE;                                                \
-        slli  a5,a5,12;                                                 \
+        mv    a5,zero;                                                  \
+        lui  a5,0xFFE00;                                                \
         sw TESTNUM, 0(a5);                                              \
 
 #undef RVTEST_FAIL
 #define RVTEST_FAIL sll a0, TESTNUM, 1; 1:beqz a0, 1b; or a0, a0, 1;    \
-        mv    a5,s0;                                                    \
-        addi  a5,a5,0xFF;                                               \
-        slli  a5,a5,4;                                                  \
-        addi  a5,a5,0xE;                                                \
-        slli  a5,a5,12;                                                 \
+        mv    a5,zero;                                                  \
+        lui  a5,0xFFE00;                                                \
         sw TESTNUM, 0(a5);                                              \
 
 //-----------------------------------------------------------------------
