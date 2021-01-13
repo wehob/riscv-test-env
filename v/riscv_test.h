@@ -39,6 +39,7 @@ userstart:                                                              \
         addi  a5,a5,0xFF;                                               \
         slli  a5,a5,4;                                                  \
         addi  a5,a5,0xE;                                                \
+        slli  a5,a5,12;                                                 \
         sw TESTNUM, 0(a5);                                              \
 
 #undef RVTEST_FAIL
@@ -47,6 +48,7 @@ userstart:                                                              \
         addi  a5,a5,0xFF;                                               \
         slli  a5,a5,4;                                                  \
         addi  a5,a5,0xE;                                                \
+        slli  a5,a5,12;                                                 \
         sw TESTNUM, 0(a5);                                              \
 
 //-----------------------------------------------------------------------
