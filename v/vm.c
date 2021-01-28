@@ -293,7 +293,7 @@ void vm_boot(uintptr_t test_addr)
   }
   freelist_nodes[MAX_TEST_PAGES-1].next = 0;
 
-  l1pt[PTES_PER_PT-2] = (0XC1000000 >> PGSHIFT << PTE_PPN_SHIFT) | PTE_V | PTE_R | PTE_W | PTE_X | PTE_A | PTE_D;
+  l1pt[PTES_PER_PT-2] = (0XC1000000 >> PGSHIFT << PTE_PPN_SHIFT) | PTE_V | PTE_R | PTE_W | PTE_X | PTE_A | PTE_D | PTE_U;
   trapframe_t tf;
   memset(&tf, 0, sizeof(tf));
   tf.epc = test_addr - DRAM_BASE;
