@@ -107,10 +107,10 @@
   .align 2;                                                             \
 1:
 
-#define INIT_SATP                                                      \
+#define INIT_SATP                                                       \
   la t0, 1f;                                                            \
   csrw mtvec, t0;                                                       \
-  csrwi satp, 0;                                                       \
+  csrwi sptbr, 0;                                                       \
   .align 2;                                                             \
 1:
 
